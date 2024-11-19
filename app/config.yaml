@@ -1,0 +1,56 @@
+cookie:
+  expiry_days: 2
+  key: replace_value_from_env_vars
+  name: moddy_da_cookie
+credentials:
+  usernames:
+    zeus:
+      email: zeus@mail.com
+      failed_login_attempts: 0 # Will be managed automatically
+      first_name: Zeus
+      last_name: Olympian
+      logged_in: False # Will be managed automatically
+      password: $2b$12$AyJcO72IE5s2jjeN2oCGouR93t/JCpmjbrxz8gFOxucO4q6K85WxO
+      roles: # Optional
+        - admin
+        - editor
+        - viewer
+    apollo:
+      email: apollo@gmail.com
+      failed_login_attempts: 0 # Will be managed automatically
+      first_name: Apollo
+      last_name: Olympian
+      logged_in: False # Will be managed automatically
+      password: $2b$12$A9GFmw53mi6jolAPonUtO.Q23ZVAeXHzqeoZKOU8wiyLuNXQTD.Fi
+      roles: # Optional
+        - admin
+        - editor
+        - viewer
+    poseidon:
+      email: poseidon@mail.com
+      failed_login_attempts: 0 # Will be managed automatically
+      first_name: Poseidon
+      last_name: Olympian
+      logged_in: False # Will be managed automatically
+      password: $2b$12$g1QBuJ3Rci4IwMbnG3hwUu41PonuodgmUVmsBu2XcPm/5AFKjjBaC
+      roles: # Optional
+        - admin
+        - editor
+        - viewer
+    athena:
+      email: athena@mail.com
+      failed_login_attempts: 0 # Will be managed automatically
+      first_name: Athena
+      last_name: Olympian
+      logged_in: False # Will be managed automatically
+      password: $2b$12$zLEyJp.cdfwxn6YFDhVTJO00j3K4hcGq7cMMqnu044seewq9EKYiq
+      roles: # Optional
+        - admin
+        - editor
+        - viewer
+streamlit_ui:
+  page_title: "Moddy Da Moderator"
+  page_icon: "🔥" # Use a relevant emoji or icon
+  layout: "centered" # Options: "centered", "wide"
+  initial_sidebar_state: "collapsed" # Options: "auto", "expanded", "collapsed"
+login_captcha: false
