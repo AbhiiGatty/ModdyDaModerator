@@ -60,6 +60,7 @@ soupsieve==2.6
 st-annotated-text==4.0.1
 st-theme==1.2.3
 streamlit==1.40.1
+streamlit-ace==0.1.1
 streamlit-authenticator==0.4.1
 streamlit-camera-input-live==0.2.0
 streamlit-card==1.0.2

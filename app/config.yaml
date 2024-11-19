@@ -53,4 +53,7 @@ streamlit_ui:
   page_icon: "🔥" # Use a relevant emoji or icon
   layout: "centered" # Options: "centered", "wide"
   initial_sidebar_state: "collapsed" # Options: "auto", "expanded", "collapsed"
-login_captcha: false
+ai_operations:
+  fact_check: "Fact Check"
+  tone_check: "Tone Check"
+  accuracy_check: "Accuracy Check"

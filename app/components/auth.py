@@ -62,8 +62,6 @@ def render_login_form():
     if st.session_state.get('last_login') is None:
         st.session_state['last_login'] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
-    print(st.session_state)
-
 
 def render_logout_button():
     authenticator = get_authenticator()

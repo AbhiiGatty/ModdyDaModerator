@@ -18,6 +18,8 @@
             "console": "integratedTerminal",
             "env": {
                 "STREAMLIT_DEBUG": "true", // Enables debug mode for better traceability
+                "COOKIE_KEY": "hello-world",
+                "LOGIN_CAPTCHA": ""
             },
             "cwd": "${workspaceFolder}", // Current working directory
             "justMyCode": true
