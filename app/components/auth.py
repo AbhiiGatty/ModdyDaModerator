@@ -2,7 +2,7 @@ import os
 import streamlit as st
 import streamlit_authenticator as stauth
 from streamlit_extras.switch_page_button import switch_page
-from datetime import datetime
+from datetime import datetime, timezone
 
 from config import Config
 
@@ -60,7 +60,7 @@ def render_login_form():
         st.error('Username/password is incorrect', icon="🚨")
 
     if st.session_state.get('last_login') is None:
-        st.session_state['last_login'] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        st.session_state['last_login'] = f'{timezone.utc} {datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S")}'
 
 
 def render_logout_button():
