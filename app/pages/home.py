@@ -1,10 +1,12 @@
 import os
-from config import Config
-from utils import helper
-from components import layout
-
+import json
 import streamlit as st
 from streamlit_ace import st_ace
+
+from config import Config
+from utils import helper
+from components import layout, tags
+from ai import operations as ai_operations
 
 
 # Set up the Streamlit page layout
@@ -29,36 +31,28 @@ def generate_output(selected_check, editor_code, uploaded_file_names=None):
     with col2:
         st.subheader('AI Output')
         output = ""
-        # current_check = constants.AI_CHECK_OPTIONS.get(selected_check, "unknown")
 
-        # with st.status("AI Moderation in progress ", expanded=True) as status:
-        #     st.write("Generating Subject Tags")
-        #     content_tags = ai_operations.generate_upsc_tags(editor_code)
-        #     extras.content_tags(tag_dict=content_tags, description="")
+        with st.status("AI Moderation in progress ", expanded=True) as status:
+            st.write("Generating Subject Tags")
+            content_tags = ai_operations.generate_upsc_tags(editor_code)
+            tags.render_tags(tag_dict=content_tags, description="AI subject tags")
 
-        #     st.write("Crafting the perfect response 📝")
-        #     # Call the respective AI operation based on the selected check
-        #     if current_check == constants.AI_CHECK_OPTIONS["Fact Check"]:
-        #         output = ai_operations.check_factuality(editor_code)
-        #     elif current_check == constants.AI_CHECK_OPTIONS["Tone Check"]:
-        #         output = ai_operations.check_tone(editor_code)
-        #     elif current_check == constants.AI_CHECK_OPTIONS["Accuracy Check"]:
-        #         if uploaded_file_names:
-        #             st.write("Processing Uploaded Files")
-        #             # extractor.process_pdfs(pdf_dir="uploads", txt_dir="uploads / convert_to_text")
-        #             # st.write("Running Indexing to create Vector DB")
-        #             # indexer.main()
-        #             output = ai_operations.query_relevancy_score(input_string=editor_code)  # Assuming a function exists to handle accuracy check on uploaded files
-        #         else:
-        #             output = "No files uploaded for Accuracy Check. Please upload files to proceed."
-        #     else:
-        #         output = "Unknown check option selected."
+            st.write("Crafting the perfect response 📝")
+            # Call the respective AI operation based on the selected check
+            if selected_check == "fact_check":
+                output = ai_operations.check_factuality(editor_code)
+            elif selected_check == "tone_check":
+                output = ai_operations.check_tone(editor_code)
+            elif selected_check == "accuracy_check":
+                output = "Under construction. Please select a valid check option."
+            else:
+                output = "Unknown check option selected."
 
-        #     st.code(json.dumps(output, indent=4), line_numbers=True, wrap_lines=True)
+            st.code(json.dumps(output, indent=4), line_numbers=True, wrap_lines=True)
 
-        #     status.update(
-        #         label="Processing Complete!", state="complete", expanded=True
-        # )
+            status.update(
+                label="Processing Complete!", state="complete", expanded=True
+            )
 
 
 # Left column for code input
