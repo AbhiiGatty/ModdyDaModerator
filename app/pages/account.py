@@ -1,7 +1,9 @@
 import streamlit as st
 from streamlit_extras.switch_page_button import switch_page
 
-from components import auth
+from components import auth, layout
+
+layout.update_page_layout(layout="centered")
 
 # Display user details if they exist in session state
 if st.session_state.get('authentication_status'):
